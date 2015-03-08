@@ -34,7 +34,7 @@ I recommend installing VimLab using [Vundle](https://github.com/gmarik/vundle).
 Add the following lines to your .vimrc file:
 ```vim
 Plugin "ervandew/screen"
-Plugin "dajero/VimLab"
+Plugin "kinnala/VimLab"
 "Optional, if you desire automatic code analysis
 Plugin "scrooloose/syntastic"
 ```
@@ -48,18 +48,23 @@ These mappings are prefixed by your leader, which defauls to `\`. If you set
 your mapleader to a different character, please mentally substitute the
 backslash by the `mapleader` of your choice. 
 
-* `\mm` starts matlab
-* `\ms` sends the current section to MATLAB
-* `\md` open the documentation for the current word
+* `\mm` starts MATLAB
+* `\ms` sends the current section to MATLAB and (*TODO*) in visual mode send selection to MATLAB.
+* `\md` open the documentation browser for the current word
 * `\mh` show help for the current word
 * `\mv` show the variable the cursor is on
 * `gn`  go to the next section
 * `gN`  go to the previous section
+* `\mb` (*TODO*) add/remove a breakpoint
+* `\mr` (*TODO*) run the file in MATLAB
 
 VimLab also provides two commands to quickly open the documentation or help for
 a function:
 * `:mdoc my-function` opens the documentation for my-function
 * `:mhelp my-function` shows help for my-function
+
+*TODO*. Section highlighting, maybe through custom m-file highlighting.
+*TODO*. Parse the html-tags in help-command outputs somehow. Maybe implement through custom matlab startup script.
 
 ## Configuration
 By default, VimLab splits your tmux window horizontally to create a pane for
