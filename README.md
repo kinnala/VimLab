@@ -2,6 +2,9 @@
 VimLab replicates MATLAB's support for code sections in Vim. It uses
 tmux to maintain a MATLAB session from within vim.
 
+This is a fork of dajero/VimLab with personally preferred modifications.
+Original VimLab is (c) Jeroen de Haas.
+
 ## Requirements
 VimLab relies on tmux and screen.vim which are used to set up and communicate
 with a MATLAB session. It expects the `matlab` command to be on your `$PATH`.
@@ -30,13 +33,13 @@ your MATLAB code automatically analyzed when it is saved.
 I recommend installing VimLab using [Vundle](https://github.com/gmarik/vundle).
 Add the following lines to your .vimrc file:
 ```vim
-Bundle "ervandew/screen"
-Bundle "dajero/VimLab"
+Plugin "ervandew/screen"
+Plugin "dajero/VimLab"
 "Optional, if you desire automatic code analysis
-Bundle "scrooloose/syntastic"
+Plugin "scrooloose/syntastic"
 ```
 Next, either quit and relaunch vim or source `.vimrc` from within your current
-vim session. Finally, issue the `:BundleInstall` command to vim to install
+vim session. Finally, issue the `:PluginInstall` command to vim to install
 VimLab and its dependencies.
 
 ## Usage
@@ -55,8 +58,8 @@ backslash by the `mapleader` of your choice.
 
 VimLab also provides two commands to quickly open the documentation or help for
 a function:
-* `:MATDoc my-function` opens the documentation for my-function
-* `:MATHelp my-function` shows help for my-function
+* `:mdoc my-function` opens the documentation for my-function
+* `:mhelp my-function` shows help for my-function
 
 ## Configuration
 By default, VimLab splits your tmux window horizontally to create a pane for

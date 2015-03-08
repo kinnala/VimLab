@@ -171,9 +171,9 @@ for [to_map, key, fn] in s:default_maps
         \ " :call <SID>".fn."()<CR>"
 endfor
 
-if !exists(':MATDoc')
+if !exists(':mdoc')
   command -nargs=1 MATDoc :call <SID>Doc(<f-args>)
 endif
-if !exists(':MATHelp')
+if !exists(':mhelp')
   command -nargs=1 MATHelp :call <SID>Help(<f-args>)
 endif
