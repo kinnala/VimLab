@@ -49,12 +49,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     exe shell_command.' '.matlab_command
   endfunction
 
-  function! s:TempOutputFilename()
-    return "/tmp/vim_matlab_extras_".strftime('%s')
-  endfunction
-
   function! s:Help(fun)
-    "let tmp_file = call s:TempOutputFilename()
     let commands = "help ".a:fun.";"
     call g:ScreenShellSend(commands)
   endfunction
@@ -65,10 +60,6 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
 
   function! s:ShowVar(var)
     call g:ScreenShellSend('openvar '.a:var.';')
-  endfunction
-
-  function! s:Test() 
-
   endfunction
 
   function! s:SendToMatlab()
@@ -138,19 +129,6 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call s:ShowVar(curword)
   endfunction
 
-  function! s:SendSection()
-      " find section
-      let searchmatch = search('^%%', 'bcnW')
-      if searchmatch < 1
-          let searchmatch = 1
-      endif
-      let forwardmatch = search('^%%', 'Wn')
-      if forwardmatch < 1
-          let forwardmatch = line('$')
-      else
-          let forwardmatch -= 1
-      endif
-  endfunction
   let s:matlab_extras_created_functions=1
 end
 
@@ -172,8 +150,8 @@ for [to_map, key, fn] in s:default_maps
 endfor
 
 if !exists(':mdoc')
-  command -nargs=1 MATDoc :call <SID>Doc(<f-args>)
+  command -nargs=1 mdoc :call <SID>Doc(<f-args>)
 endif
 if !exists(':mhelp')
-  command -nargs=1 MATHelp :call <SID>Help(<f-args>)
+  command -nargs=1 mhelp :call <SID>Help(<f-args>)
 endif
