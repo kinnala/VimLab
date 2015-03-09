@@ -87,7 +87,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:AddBreakpoint()
-    call g:ScreenShellSend("dbstop in ".bufname("%")." at ".getline("."))
+    call g:ScreenShellSend("dbstop in ".bufname("%")." at ".line("."))
   endfunction
   
   function! s:FirstLineInSection()
