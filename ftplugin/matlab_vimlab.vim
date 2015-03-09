@@ -72,16 +72,14 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     return join(lines, "\n")
   endfunction
 
-  function! s:SendToMatlab()
-    let vselection=s:GetVisualSelection()
-    if vselection==""
-      call g:ScreenShellSend(vselection)
-    else
-      echoerr mode()
-      let beginning = s:FirstLineInSection()
-      let end = s:LastLineInSection()
-      exe beginning.','.end.'ScreenSend'
-    endif
+  function! s:SendVisualSelectionToMatlab()
+    call g:ScreenShellSend(s:GetVisualSelection())
+  endfunction
+
+  function! s:SendSectionToMatlab()
+    let beginning = s:FirstLineInSection()
+    let end = s:LastLineInSection()
+    exe beginning.','.end.'ScreenSend'
   endfunction
   
   function! s:FirstLineInSection()
@@ -156,7 +154,7 @@ let s:default_maps = [
       \ ['MatlabNextSection', 'gn', 'NextSection'],
       \ ['MatlabPrevSection', 'gN', 'PrevSection'],
       \ ['MatlabStart', '<leader>mm', 'StartMatlab'],
-      \ ['MatlabSend', '<leader>ms', 'SendToMatlab'],
+      \ ['MatlabSend', '<leader>ms', 'SendSectionToMatlab'],
       \ ['MatlabDocCurrentWord', '<leader>md', 'DocCurrentWord'],
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
       \ ['MatlabEvalCurrentWord', '<leader>mw', 'EvalCurrentWord'],
@@ -167,6 +165,16 @@ for [to_map, key, fn] in s:default_maps
     exe "map <unique> <buffer> ".key." <Plug>".to_map
   endif
   exe "noremap <script> <buffer> <unique> <Plug>".to_map.
+        \ " :call <SID>".fn."()<CR>"
+endfor
+let s:visual_maps = [
+      \ ['MatlabVisualSend', '<leader>ms', 'SendVisualSelectionToMatlab'],
+      \]
+for [to_map, key, fn] in s:visual_maps
+  if !hasmapto('<Plug>'.to_map)
+    exe "vmap <unique> <buffer> ".key." <Plug>".to_map
+  endif
+  exe "vnoremap <script> <buffer> <unique> <Plug>".to_map.
         \ " :call <SID>".fn."()<CR>"
 endfor
 
