@@ -50,7 +50,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:Help(fun)
-    let commands = "regexprep(evalc('help ".a:fun."'),'<[^>]*>','');"
+    let commands = "display(regexprep(evalc('help ".a:fun."'),'<[^>]*>',''));"
     call g:ScreenShellSend(commands)
   endfunction
 
