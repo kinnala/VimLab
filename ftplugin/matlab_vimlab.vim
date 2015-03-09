@@ -73,8 +73,9 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:SendToMatlab()
-    if mode()=="V"
-      call g:ScreenShellSend(s:GetVisualSelection())
+    let vselection=s:GetVisualSelection()
+    if vselection==""
+      call g:ScreenShellSend(vselection)
     else
       echoerr mode()
       let beginning = s:FirstLineInSection()
