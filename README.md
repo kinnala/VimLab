@@ -8,9 +8,6 @@ Original VimLab is (c) Jeroen de Haas.
 ## Requirements
 VimLab relies on tmux and screen.vim which are used to set up and communicate
 with a MATLAB session. It expects the `matlab` command to be on your `$PATH`.
-Code analysis, similar to that offered by MATLAB's editor, is provided by the
-excellent Syntastic plugin. If `mlint` is on your path as well, Syntastic will
-automatically analyze your MATLAB code when it's saved.
 
 ### tmux
 VimLab requires vim to run inside a tmux session. Linux users may find a tmux
