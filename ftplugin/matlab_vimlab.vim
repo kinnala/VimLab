@@ -63,7 +63,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:GetVisualSelection()
-    " Why is this not a built-in Vim script function?!
+    " by Pete Rodding, thanks!
     let [lnum1, col1] = getpos("'<")[1:2]
     let [lnum2, col2] = getpos("'>")[1:2]
     let lines = getline(lnum1, lnum2)
@@ -79,7 +79,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
       let beginning = s:FirstLineInSection()
       let end = s:LastLineInSection()
       exe beginning.','.end.'ScreenSend'
-    end
+    endif
   endfunction
   
   function! s:FirstLineInSection()
