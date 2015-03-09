@@ -76,6 +76,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     if mode()=="V"
       call g:ScreenShellSend(s:GetVisualSelection())
     else
+      echoerr mode()
       let beginning = s:FirstLineInSection()
       let end = s:LastLineInSection()
       exe beginning.','.end.'ScreenSend'
