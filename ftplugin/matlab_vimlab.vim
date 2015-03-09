@@ -50,8 +50,13 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:Help(fun)
-    let commands = "help ".a:fun.";"
+    exe "!rm ~/tmp/vimlab_help.tmp"
+    let commands = "diary('~/tmp/vimlab_help.tmp');help ".a:fun.";diary off;"
     call g:ScreenShellSend(commands)
+    exe "!sed ':a;N;$!ba;s/\n/<br>/g' ~/tmp/vimlab_help.tmp >> ~/tmp/vimlab_help_br.tmp"
+    " TODO add checking if w3m, lynx or links exists to do the job
+    exe "!w3m -dump ~/tmp/vimlab_help_br.tmp > ~/tmp/vimlab_help_readable.tmp"
+    exe "vert new ~/tmp/vimlab_help_readable.tmp"
   endfunction
 
   function! s:Doc(command)
