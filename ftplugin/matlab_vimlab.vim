@@ -62,10 +62,24 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call g:ScreenShellSend(a:word)
   endfunction
 
+  function! s:GetVisualSelection()
+    " Why is this not a built-in Vim script function?!
+    let [lnum1, col1] = getpos("'<")[1:2]
+    let [lnum2, col2] = getpos("'>")[1:2]
+    let lines = getline(lnum1, lnum2)
+    let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
+    let lines[0] = lines[0][col1 - 1:]
+    return join(lines, "\n")
+  endfunction
+
   function! s:SendToMatlab()
-    let beginning = s:FirstLineInSection()
-    let end = s:LastLineInSection()
-    exe beginning.','.end.'ScreenSend'
+    if mode()=="V"
+      call g:ScreenShellSend(s:GetVisualSelection())
+    else
+      let beginning = s:FirstLineInSection()
+      let end = s:LastLineInSection()
+      exe beginning.','.end.'ScreenSend'
+    end
   endfunction
   
   function! s:FirstLineInSection()
@@ -143,7 +157,7 @@ let s:default_maps = [
       \ ['MatlabSend', '<leader>ms', 'SendToMatlab'],
       \ ['MatlabDocCurrentWord', '<leader>md', 'DocCurrentWord'],
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
-      \ ['MatlabEvalCurrentWord', '<leader>me', 'EvalCurrentWord'],
+      \ ['MatlabEvalCurrentWord', '<leader>mw', 'EvalCurrentWord'],
       \ ['MatlabCloseAll', '<leader>mc', 'CloseAllFigures'],
       \]
 for [to_map, key, fn] in s:default_maps
