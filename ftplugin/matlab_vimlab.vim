@@ -59,7 +59,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:ShowVar(var)
-    call g:ScreenShellSend('openvar '.a:var.';')
+    call g:ScreenShellSend(a:var)
   endfunction
 
   function! s:SendToMatlab()
@@ -129,6 +129,10 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call s:ShowVar(curword)
   endfunction
 
+  function! s:CloseAllFigures()
+    call g:ScreenShellSend('close all;')
+  endfunction
+
   let s:matlab_extras_created_functions=1
 end
 
@@ -140,6 +144,7 @@ let s:default_maps = [
       \ ['MatlabDocCurrentWord', '<leader>md', 'DocCurrentWord'],
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
       \ ['MatlabShowCurrentVar', '<leader>mv', 'ShowCurrentVar'],
+      \ ['MatlabCloseAll', '<leader>mc', 'CloseAllFigures'],
       \]
 for [to_map, key, fn] in s:default_maps
   if !hasmapto('<Plug>'.to_map)

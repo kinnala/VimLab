@@ -44,12 +44,6 @@ VimLab and its dependencies.
 
 ## Usage
 
-
-
-
-
-
-
 VimLab automatically creates a few key mappings when you enter a MATLAB buffer.
 These mappings are prefixed by your leader, which defauls to `\`. If you set
 your mapleader to a different character, please mentally substitute the
@@ -59,11 +53,12 @@ backslash by the `mapleader` of your choice.
 * `\ms` sends the current section to MATLAB and (*TODO*) in visual mode send selection to MATLAB.
 * `\md` open the documentation browser for the current word
 * `\mh` show help for the current word
-* `\mv` show the variable the cursor is on
+* `\mv` write the current word to command interpreter
 * `gn`  go to the next section
 * `gN`  go to the previous section
 * `\mb` (*TODO*) add/remove a breakpoint
 * `\mr` (*TODO*) run the file in MATLAB
+* `\mc` close all figures
 
 VimLab also provides two commands to quickly open the documentation or help for
 a function:
