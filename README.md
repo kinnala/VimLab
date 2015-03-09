@@ -39,7 +39,7 @@ VimLab automatically creates a few key mappings when you enter a MATLAB buffer.
 These mappings are prefixed by your leader, which defauls to `\`.
 
 * `\mm` starts MATLAB
-* `\ms` sends the current section to MATLAB and (in visual mode) send selection to MATLAB. (TODO bug in multiline selection.)
+* `\ms` sends the current section to MATLAB (in normal mode) and send selection to MATLAB (in visual mode). (TODO bug in multiline selection send.)
 * `\md` open the documentation browser for the current word
 * `\mh` show help for the current word
 * `\mw` evaluate the current word in command interpreter
@@ -47,7 +47,7 @@ These mappings are prefixed by your leader, which defauls to `\`.
 * `gN`  go to the previous section
 * `\mb` add a breakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
 * `\mr` run the file in MATLAB as a script
-* `\mc` close all figures
+* `\mc` run "close all"
 
 TODO. Add command to run *mlintrpt*.
 
