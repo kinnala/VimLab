@@ -48,7 +48,7 @@ These mappings are prefixed by your leader, which defauls to `\`.
 * `\mw` evaluate the current word in command interpreter
 * `gn`  go to the next section
 * `gN`  go to the previous section
-* `\mb` (*TODO*) add/remove a breakpoint
+* `\mb` add a breakpoint with *dbstop in <file> at <line>* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
 * `\mr` run the file in MATLAB as a script
 * `\mc` close all figures
 

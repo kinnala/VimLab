@@ -85,6 +85,10 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     let end = s:LastLineInSection()
     exe beginning.','.end.'ScreenSend'
   endfunction
+
+  function! s:AddBreakpoint()
+    call g:ScreenShellSend("dbstop in ".bufname("%")." at ".getline("."))
+  endfunction
   
   function! s:FirstLineInSection()
     let backwardmatch = search('^%%', 'Wbc')
@@ -164,6 +168,7 @@ let s:default_maps = [
       \ ['MatlabEvalCurrentWord', '<leader>mw', 'EvalCurrentWord'],
       \ ['MatlabCloseAll', '<leader>mc', 'CloseAllFigures'],
       \ ['MatlabRunFile', '<leader>mr', 'RunFile'],
+      \ ['MatlabAddBreakpoint', '<leader>mb', 'AddBreakpoint'],
       \]
 for [to_map, key, fn] in s:default_maps
   if !hasmapto('<Plug>'.to_map)
