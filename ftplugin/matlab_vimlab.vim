@@ -72,12 +72,22 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     return join(lines, "\n")
   endfunction
 
+  function! GetVisualSelection2()
+    try
+      let a_save = @a
+      normal! gv"ay
+      return @a
+    finally
+      let @a = a_save
+    endtry
+  endfunction
+
   function! s:RunFile()
     call g:ScreenShellSend("run('".bufname("%")."')")
   endfunction
 
   function! s:SendVisualSelectionToMatlab()
-    let visselect=s:GetVisualSelection()
+    let visselect=s:GetVisualSelection2()
     echom visselect
     call g:ScreenShellSend(visselect)
   endfunction
