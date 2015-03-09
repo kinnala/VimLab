@@ -162,9 +162,9 @@ let s:default_maps = [
       \]
 for [to_map, key, fn] in s:default_maps
   if !hasmapto('<Plug>'.to_map)
-    exe "map <unique> <buffer> ".key." <Plug>".to_map
+    exe "nmap <unique> <buffer> ".key." <Plug>".to_map
   endif
-  exe "noremap <script> <buffer> <unique> <Plug>".to_map.
+  exe "nnoremap <script> <buffer> <unique> <Plug>".to_map.
         \ " :call <SID>".fn."()<CR>"
 endfor
 let s:visual_maps = [
