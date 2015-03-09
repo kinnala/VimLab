@@ -72,6 +72,10 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     return join(lines, "\n")
   endfunction
 
+  function! s:RunFile()
+    call g:ScreenShellSend("run('".bufname("%")."')")
+  endfunction
+
   function! s:SendVisualSelectionToMatlab()
     call g:ScreenShellSend(s:GetVisualSelection())
   endfunction
@@ -159,6 +163,7 @@ let s:default_maps = [
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
       \ ['MatlabEvalCurrentWord', '<leader>mw', 'EvalCurrentWord'],
       \ ['MatlabCloseAll', '<leader>mc', 'CloseAllFigures'],
+      \ ['MatlabRunFile', '<leader>mr', 'RunFile'],
       \]
 for [to_map, key, fn] in s:default_maps
   if !hasmapto('<Plug>'.to_map)

@@ -14,8 +14,8 @@ automatically analyze your MATLAB code when it's saved.
 
 ### tmux
 VimLab requires vim to run inside a tmux session. Linux users may find a tmux
-package is provided by their favorite distribution. For OS X users, I recommend
-installing tmux using [homebrew](http://brew.sh). 
+package is provided by their favorite distribution. For OS X users, it is recommended to
+install tmux using [homebrew](http://brew.sh). 
 
 For a well written introduction to tmux, please take a look at the book ["tmux:
 Productive Mouse-Free Development"](http://pragprog.com/book/bhtmux/tmux) by
@@ -24,19 +24,13 @@ Brian P. Hogan.
 ### screen.vim
 VimLab uses [Screen.vim](https://github.com/ervandew/screen) to manage a MATLAB
 session within tmux.
-
-### Syntastic (Optional)
-Install [Syntastic](https://github.com/scrooloose/syntastic) if you wish to have
-your MATLAB code automatically analyzed when it is saved. 
  
 ## Installation
-I recommend installing VimLab using [Vundle](https://github.com/gmarik/vundle).
+[Vundle](https://github.com/gmarik/vundle) is recommended for installing VimLab.
 Add the following lines to your .vimrc file:
 ```vim
 Plugin "ervandew/screen"
 Plugin "kinnala/VimLab"
-"Optional, if you desire automatic code analysis
-Plugin "scrooloose/syntastic"
 ```
 Next, either quit and relaunch vim or source `.vimrc` from within your current
 vim session. Finally, issue the `:PluginInstall` command to vim to install
@@ -45,19 +39,17 @@ VimLab and its dependencies.
 ## Usage
 
 VimLab automatically creates a few key mappings when you enter a MATLAB buffer.
-These mappings are prefixed by your leader, which defauls to `\`. If you set
-your mapleader to a different character, please mentally substitute the
-backslash by the `mapleader` of your choice. 
+These mappings are prefixed by your leader, which defauls to `\`.
 
 * `\mm` starts MATLAB
-* `\ms` sends the current section to MATLAB and (*TODO*) in visual mode send selection to MATLAB.
+* `\ms` sends the current section to MATLAB and (in visual mode) send selection to MATLAB.
 * `\md` open the documentation browser for the current word
 * `\mh` show help for the current word
-* `\me` evaluate the current word in command interpreter
+* `\mw` evaluate the current word in command interpreter
 * `gn`  go to the next section
 * `gN`  go to the previous section
 * `\mb` (*TODO*) add/remove a breakpoint
-* `\mr` (*TODO*) run the file in MATLAB
+* `\mr` run the file in MATLAB as a script
 * `\mc` close all figures
 
 VimLab also provides two commands to quickly open the documentation or help for
