@@ -72,7 +72,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     return join(lines, "\n")
   endfunction
 
-  function! GetVisualSelection2()
+  function! s:GetVisualSelect()
     try
       let a_save = @a
       normal! gv"ay
