@@ -19,7 +19,7 @@ Productive Mouse-Free Development"](http://pragprog.com/book/bhtmux/tmux) by
 Brian P. Hogan. 
 
 ### screen.vim
-VimLab uses [Screen.vim](https://github.com/ervandew/screen) to manage a MATLAB
+VimLab uses [screen.vim](https://github.com/ervandew/screen) to manage a MATLAB
 session within tmux.
  
 ## Installation
@@ -45,7 +45,7 @@ These mappings are prefixed by your leader, which defauls to `\`.
 * `\mw` evaluate the current word in command interpreter
 * `gn`  go to the next section
 * `gN`  go to the previous section
-* `\mb` add a breakpoint with *dbstop in <file> at <line>* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
+* `\mb` add a breakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
 * `\mr` run the file in MATLAB as a script
 * `\mc` close all figures
 
