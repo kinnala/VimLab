@@ -87,7 +87,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:SendVisualSelectionToMatlab()
-    let visselect=s:GetVisualSelection2()
+    let visselect=s:GetVisualSelect()
     echom visselect
     call g:ScreenShellSend(visselect)
   endfunction
