@@ -58,8 +58,8 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call g:ScreenShellSend('doc '.a:command.';')
   endfunction
 
-  function! s:ShowVar(var)
-    call g:ScreenShellSend(a:var)
+  function! s:EvalWord(word)
+    call g:ScreenShellSend(a:word)
   endfunction
 
   function! s:SendToMatlab()
@@ -124,9 +124,9 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call s:Help(curword)
   endfunction
   
-  function! s:ShowCurrentVar()
+  function! s:EvalCurrentWord()
     let curword = s:CurrentWord()
-    call s:ShowVar(curword)
+    call s:EvalWord(curword)
   endfunction
 
   function! s:CloseAllFigures()
@@ -143,7 +143,7 @@ let s:default_maps = [
       \ ['MatlabSend', '<leader>ms', 'SendToMatlab'],
       \ ['MatlabDocCurrentWord', '<leader>md', 'DocCurrentWord'],
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
-      \ ['MatlabShowCurrentVar', '<leader>mv', 'ShowCurrentVar'],
+      \ ['MatlabEvalCurrentWord', '<leader>me', 'EvalCurrentWord'],
       \ ['MatlabCloseAll', '<leader>mc', 'CloseAllFigures'],
       \]
 for [to_map, key, fn] in s:default_maps

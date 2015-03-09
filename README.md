@@ -53,7 +53,7 @@ backslash by the `mapleader` of your choice.
 * `\ms` sends the current section to MATLAB and (*TODO*) in visual mode send selection to MATLAB.
 * `\md` open the documentation browser for the current word
 * `\mh` show help for the current word
-* `\mv` write the current word to command interpreter
+* `\me` evaluate the current word in command interpreter
 * `gn`  go to the next section
 * `gN`  go to the previous section
 * `\mb` (*TODO*) add/remove a breakpoint
