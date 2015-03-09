@@ -43,6 +43,13 @@ vim session. Finally, issue the `:PluginInstall` command to vim to install
 VimLab and its dependencies.
 
 ## Usage
+
+
+
+
+
+
+
 VimLab automatically creates a few key mappings when you enter a MATLAB buffer.
 These mappings are prefixed by your leader, which defauls to `\`. If you set
 your mapleader to a different character, please mentally substitute the
@@ -60,11 +67,12 @@ backslash by the `mapleader` of your choice.
 
 VimLab also provides two commands to quickly open the documentation or help for
 a function:
-* `:mdoc my-function` opens the documentation for my-function
-* `:mhelp my-function` shows help for my-function
+* `:Mdoc my_function` opens the documentation for *my_function*
+* `:Mhelp my_function` shows help for *my_function*
 
-*TODO*. Section highlighting, maybe through custom m-file highlighting.
-*TODO*. Parse the html-tags in help-command outputs somehow. Maybe implement through custom matlab startup script.
+Other added features
+* *TODO*. Section highlighting, maybe through custom m-file highlighting.
+* Removes html-clutter in help outputs
 
 ## Configuration
 By default, VimLab splits your tmux window horizontally to create a pane for
