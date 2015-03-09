@@ -14,10 +14,6 @@ VimLab requires vim to run inside a tmux session. Linux users may find a tmux
 package is provided by their favorite distribution. For OS X users, it is recommended to
 install tmux using [homebrew](http://brew.sh). 
 
-For a well written introduction to tmux, please take a look at the book ["tmux:
-Productive Mouse-Free Development"](http://pragprog.com/book/bhtmux/tmux) by
-Brian P. Hogan. 
-
 ### screen.vim
 VimLab uses [screen.vim](https://github.com/ervandew/screen) to manage a MATLAB
 session within tmux.
@@ -39,17 +35,17 @@ VimLab automatically creates a few key mappings when you enter a MATLAB buffer.
 These mappings are prefixed by your leader, which defauls to `\`.
 
 * `\mm` starts MATLAB
-* `\ms` sends the current section to MATLAB (in normal mode) and send selection to MATLAB (in visual mode). (TODO bug in multiline selection send.)
-* `\md` open the documentation browser for the current word
-* `\mh` show help for the current word
-* `\mw` evaluate the current word in command interpreter
+* `\ms` run the current *s*ection in MATLAB (in normal mode).
+* `\md` open the *d*ocumentation browser for the current word
+* `\mh` show *h*elp for the current word
+* `\me` *e*valuate the current word (or visual selection) in command interpreter
+* `\mb` add a *b*reakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
+* `\mB` remove all *b*reakpoints (*dbclear all*).
+* `\mr` *r*un the file in MATLAB as a script
+* `\mx` run "close all" and "clear all" (click *x*)
+* `\mc` *c*heck the code with *mlintrpt*
 * `gn`  go to the next section
 * `gN`  go to the previous section
-* `\mb` add a breakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
-* `\mr` run the file in MATLAB as a script
-* `\mc` run "close all"
-
-TODO. Add command to run *mlintrpt*.
 
 VimLab also provides two commands to quickly open the documentation or help for
 a function:

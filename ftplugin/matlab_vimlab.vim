@@ -76,9 +76,12 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call g:ScreenShellSend("run('".bufname("%")."')")
   endfunction
 
+  function! s:RunMlint()
+    call g:ScreenShellSend("mlintrpt('".bufname("%")."')")
+  endfunction
+
   function! s:SendVisualSelectionToMatlab() range
     let visselect=s:GetVisualSelection()
-    echom visselect
     call g:ScreenShellSend(visselect)
   endfunction
 
@@ -90,6 +93,10 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
 
   function! s:AddBreakpoint()
     call g:ScreenShellSend("dbstop in ".bufname("%")." at ".line("."))
+  endfunction
+
+  function! s:RemoveBreakpoints()
+    call g:ScreenShellSend("dbclear all")
   endfunction
   
   function! s:FirstLineInSection()
@@ -153,8 +160,8 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call s:EvalWord(curword)
   endfunction
 
-  function! s:CloseAllFigures()
-    call g:ScreenShellSend('close all;')
+  function! s:CloseClearAll()
+    call g:ScreenShellSend('close all;clear all;')
   endfunction
 
   let s:matlab_extras_created_functions=1
@@ -167,10 +174,12 @@ let s:default_maps = [
       \ ['MatlabSend', '<leader>ms', 'SendSectionToMatlab'],
       \ ['MatlabDocCurrentWord', '<leader>md', 'DocCurrentWord'],
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
-      \ ['MatlabEvalCurrentWord', '<leader>mw', 'EvalCurrentWord'],
-      \ ['MatlabCloseAll', '<leader>mc', 'CloseAllFigures'],
+      \ ['MatlabEvalCurrentWord', '<leader>me', 'EvalCurrentWord'],
+      \ ['MatlabCloseClearAll', '<leader>mx', 'CloseClearAll'],
       \ ['MatlabRunFile', '<leader>mr', 'RunFile'],
       \ ['MatlabAddBreakpoint', '<leader>mb', 'AddBreakpoint'],
+      \ ['MatlabRemoveBreakpoints', '<leader>mB', 'RemoveBreakpoints'],
+      \ ['MatlabRunMlint', '<leader>mc', 'RunMlint'],
       \]
 for [to_map, key, fn] in s:default_maps
   if !hasmapto('<Plug>'.to_map)
@@ -180,7 +189,7 @@ for [to_map, key, fn] in s:default_maps
         \ " :call <SID>".fn."()<CR>"
 endfor
 let s:visual_maps = [
-      \ ['MatlabVisualSend', '<leader>ms', 'SendVisualSelectionToMatlab'],
+      \ ['MatlabVisualSend', '<leader>me', 'SendVisualSelectionToMatlab'],
       \]
 for [to_map, key, fn] in s:visual_maps
   if !hasmapto('<Plug>'.to_map)
