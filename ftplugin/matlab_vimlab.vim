@@ -1,7 +1,7 @@
 " MATLAB filetype plugin which facilitates working with MATLAB from Vim
-" Language:	matlab
-" Maintainer:	Jeroen de Haas <jeroen ThisPartMustBeIgnored at farjmp dot nl>
-" Version: 0.1 released 19 Jan 2014
+" Language: matlab
+" Maintainer: Tom Gustafsson <tom doot gustafsson aat aalto doot fi>
+" Version: 0.2 released 10 Mar 2015
 " License: {{{
 " Copyright (c) 2014, Jeroen de Haas
 " All rights reserved.
