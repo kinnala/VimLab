@@ -42,7 +42,7 @@ These mappings are prefixed by your leader, which defauls to `\`.
 * `\mb` add a **b**reakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
 * `\mB` remove all **b**reakpoints (*dbclear all*).
 * `\mr` **r**un the file in MATLAB as a script
-* `\mx` run "close all" and "clear all" (click **x**)
+* `\mx` run "close all" (click **x** on all figures)
 * `\mc` **c**heck the code with *mlintrpt*
 * `gn`  go to the next section
 * `gN`  go to the previous section

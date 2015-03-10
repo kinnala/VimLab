@@ -160,8 +160,8 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
     call s:EvalWord(curword)
   endfunction
 
-  function! s:CloseClearAll()
-    call g:ScreenShellSend('close all;clear all;')
+  function! s:CloseAll()
+    call g:ScreenShellSend('close all;')
   endfunction
 
   let s:matlab_extras_created_functions=1
@@ -175,7 +175,7 @@ let s:default_maps = [
       \ ['MatlabDocCurrentWord', '<leader>md', 'DocCurrentWord'],
       \ ['MatlabHelpCurrentWord', '<leader>mh', 'HelpCurrentWord'],
       \ ['MatlabEvalCurrentWord', '<leader>me', 'EvalCurrentWord'],
-      \ ['MatlabCloseClearAll', '<leader>mx', 'CloseClearAll'],
+      \ ['MatlabCloseAll', '<leader>mx', 'CloseAll'],
       \ ['MatlabRunFile', '<leader>mr', 'RunFile'],
       \ ['MatlabAddBreakpoint', '<leader>mb', 'AddBreakpoint'],
       \ ['MatlabRemoveBreakpoints', '<leader>mB', 'RemoveBreakpoints'],
