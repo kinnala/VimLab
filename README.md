@@ -35,15 +35,15 @@ VimLab automatically creates a few key mappings when you enter a MATLAB buffer.
 These mappings are prefixed by your leader, which defauls to `\`.
 
 * `\mm` starts MATLAB
-* `\ms` run the current *s*ection in MATLAB (in normal mode).
-* `\md` open the *d*ocumentation browser for the current word
-* `\mh` show *h*elp for the current word
-* `\me` *e*valuate the current word (or visual selection) in command interpreter
-* `\mb` add a *b*reakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
-* `\mB` remove all *b*reakpoints (*dbclear all*).
-* `\mr` *r*un the file in MATLAB as a script
-* `\mx` run "close all" and "clear all" (click *x*)
-* `\mc` *c*heck the code with *mlintrpt*
+* `\ms` run the current **s**ection in MATLAB (in normal mode).
+* `\md` open the **d**ocumentation browser for the current word
+* `\mh` show **h**elp for the current word
+* `\me` **e**valuate the current word (or visual selection) in command interpreter
+* `\mb` add a **b**reakpoint with *dbstop in file at line* (note that by default MATLAB opens its built-in editor on break, this functionality can be disabled from MATLAB preferences.)
+* `\mB` remove all **b**reakpoints (*dbclear all*).
+* `\mr` **r**un the file in MATLAB as a script
+* `\mx` run "close all" and "clear all" (click **x**)
+* `\mc` **c**heck the code with *mlintrpt*
 * `gn`  go to the next section
 * `gN`  go to the previous section
 
