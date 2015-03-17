@@ -73,7 +73,7 @@ if !exists('s:matlab_extras_created_functions') || exists('s:matlab_always_creat
   endfunction
 
   function! s:RunFile()
-    call g:ScreenShellSend(split(expand("%:t"),'.')[0])
+    call g:ScreenShellSend(split(expand("%:t"),'\.')[0])
   endfunction
 
   function! s:RunMlint()
